@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import { sendEmail } from '@/utils/send-email';
 
 export type FormData = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   message: string;
 };
@@ -21,16 +22,30 @@ const Contact: FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md mx-auto">
       <div className='mb-2'>
         <label
-          htmlFor='name'
+          htmlFor='firstName'
           className='mb-3 block text-base font-medium text-black'
         >
-          Full Name
+          First Name
         </label>
         <input
           type='text'
-          placeholder='Full Name'
+          placeholder='First Name'
           className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
-          {...register('name', { required: true })}
+          {...register('firstName', { required: true })}
+        />
+      </div>
+      <div className='mb-2'>
+        <label
+          htmlFor='lastName'
+          className='mb-3 block text-base font-medium text-black'
+        >
+          Last Name
+        </label>
+        <input
+          type='text'
+          placeholder='Last Name'
+          className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+          {...register('lastName', { required: true })}
         />
       </div>
       <div className='mb-5'>
